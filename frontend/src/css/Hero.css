@@ -1,0 +1,532 @@
+.hero-main-container {
+    width: 98%;
+    height: 95vh;
+    margin: 20px auto;
+    border-radius: 35px;
+    position: relative;
+    overflow: hidden;
+    background: hsla(0, 0%, 100%, 1);
+    background: linear-gradient(45deg, hsla(0, 0%, 100%, 1) 13%, hsla(169, 32%, 90%, 1) 100%);
+    background: -moz-linear-gradient(45deg, hsla(0, 0%, 100%, 1) 13%, hsla(169, 32%, 90%, 1) 100%);
+    background: -webkit-linear-gradient(45deg, hsla(0, 0%, 100%, 1) 13%, hsla(169, 32%, 90%, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#FFFFFF", endColorstr="#DEEEEB", GradientType=1);
+}
+
+.nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 30px 25px;
+}
+
+.nav h1,
+h3 {
+    font-weight: 400;
+    font-size: 22px;
+    color: black;
+    cursor: pointer;
+    z-index: 5;
+}
+.nav h1 span{
+    font-size: 32px;
+    color:#3d66a6 ;
+}
+/* .nav h3{
+    font-weight: 400;
+    font-size: 22px;
+} */
+.name {
+    position: absolute;
+    /* right: 170px;
+    top: 25%; */
+    left: 20%;
+    top: 30%;
+    z-index: 10;
+}
+
+.name h1 {
+    font-size: 120px;
+    font-weight: 700;
+    width: 400px;
+    line-height: 110px;
+    color: black;
+    display: flex;
+}
+
+.name h1 span {
+    font-size: 150px;
+    font-weight: 700;
+    color: black;
+}
+
+.quoate {
+    position: absolute;
+    left: 30%;
+    top: 52%;
+    z-index: 10;
+}
+
+.quoate p {
+    font-size: 20px;
+    width: 600px;
+    text-align: center;
+    color: black;
+    font-weight: 500;
+}
+
+/* ================= cv =================== */
+.cv-download {
+    position: absolute;
+    top: 62%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 200;
+    display: flex;
+    gap: 20px;
+    opacity: 0;
+    animation: landingbtn 1.2s 0.8s ease forwards;
+}
+
+@keyframes landingbtn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.cv-download button {
+    padding: 10px 30px;
+    background-color: transparent;
+    border: 2px solid black;
+    color: black;
+    font-size: 17px;
+    font-weight: 500;
+    text-align: center;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.5s ease;
+    z-index: 5;
+    position: relative;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+.cv-download button>.icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 5px;
+    z-index: 5;
+    transition: 1s ease-in-out;
+    transform: translateY(0);
+    color: black;
+}
+
+.cv-download button:hover {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-weight: 500;
+}
+
+.icon.download {
+    animation: movedown 1.5s ease;
+}
+
+@keyframes movedown {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(200%);
+    }
+
+    75% {
+        transform: translateY(-500%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.get-in-touch {
+    position: absolute;
+    top: 82%;
+    left: 44%;
+    z-index: 20;
+    padding: 10px;
+    transition: 0.4s ease;
+}
+
+/* .get-in-touch:active {
+    transform: scale(0.9);
+} */
+
+.get-in-touch h2 {
+    font-weight: 500;
+    font-size: 20px;
+    cursor: pointer;
+    color: black;
+}
+
+.get-in-touch svg {
+    vertical-align: middle;
+    fill: red;
+    font-size: 24px;
+}
+
+.scroll {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    z-index: 20;
+}
+
+.scroll h2 {
+    font-weight: 500;
+    font-size: 24px;
+    cursor: pointer;
+    color: black;
+}
+
+.technologist {
+    position: absolute;
+    left: 30px;
+    bottom: 30px;
+    z-index: 20;
+}
+
+.technologist h2 {
+    font-weight: 500;
+    font-size: 24px;
+    cursor: pointer;
+    color: black;
+}
+
+/* ============================ */
+.gr1 {
+    width: 150px;
+    height: 350px;
+    border-radius: 50%;
+    box-shadow: 0 0 100px 110px #69e9d2;
+    background-color: #69e9d2;
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    z-index: 4;
+}
+
+.gr2 {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    box-shadow: 0 0 100px 110px #0a75c5;
+    background-color: #0a75c5;
+    position: absolute;
+    bottom: -120px;
+    left: 300px;
+    z-index: 5;
+    animation: gra2 14s ease infinite;
+}
+
+/* .grf {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    box-shadow: 0 0 100px 110px #0a75c5;
+    background-color: #0a75c5;
+    position: absolute;
+    bottom: -120px;
+    left: 300px;
+    z-index: 5;
+} */
+
+.gr3 {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    box-shadow: 0 0 100px 110px #83b0f9;
+    background-color: #83b0f9;
+    position: absolute;
+    bottom: -100px;
+    left: 700px;
+    z-index: 1;
+    animation: gra3 14s ease infinite;
+}
+
+.gr3f {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    box-shadow: 0 0 100px 110px #3d66a6;
+    background-color: #3d66a6;
+    position: absolute;
+    bottom: -100px;
+    left: 700px;
+    z-index: 1;
+}
+
+.gr4 {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    box-shadow: 0 0 100px 110px #0dd1f1;
+    background-color: #0dd1f1;
+    position: absolute;
+    bottom: 0px;
+    right: 300px;
+    z-index: 1;
+    animation: gra4 15s ease infinite;
+}
+
+/* .gr4f {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    box-shadow: 0 0 100px 110px #0dd1f1;
+    background-color: #0dd1f1;
+    position: absolute;
+    bottom: 0px;
+    right: 300px;
+} */
+
+.gr5 {
+    width: 100px;
+    height: 200px;
+    border-radius: 50%;
+    box-shadow: 0 0 100px 110px #879bfd;
+    background-color: #879bfd;
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    z-index: 3;
+    animation: gra5 18s ease infinite;
+}
+
+.gr5f {
+    width: 50px;
+    height: 350px;
+    border-radius: 50%;
+    box-shadow: 0 0 100px 110px #879bfd;
+    background-color: #879bfd;
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    z-index: 3;
+}
+
+.gr6 {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    box-shadow: 0 0 100px 110px #d0d6f3;
+    background-color: #d0d6f3;
+    position: absolute;
+    top: 60%;
+    right: 18%;
+}
+
+.gr7 {
+    width: 300px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0 0 100px 110px #3d66a6;
+    background-color: #3d66a6;
+    position: absolute;
+    bottom: -150px;
+    right: 50px;
+}
+
+@keyframes gra2 {
+    0% {
+        bottom: -120px;
+        left: 300px;
+    }
+
+    25% {
+        bottom: 30%;
+        left: 0%;
+    }
+
+    50% {
+        bottom: 100%;
+        left: 30%;
+    }
+
+    75% {
+        bottom: 50%;
+        left: 70%;
+    }
+
+    100% {
+        bottom: -120px;
+        left: 300px;
+    }
+}
+
+/* ================= gr3 animation=========================== */
+@keyframes gra3 {
+    0% {
+        bottom: -100px;
+        left: 700px;
+    }
+
+    20% {
+        bottom: 100%;
+        right: 20%;
+    }
+
+    40% {
+        bottom: 40%;
+        left: 30%;
+    }
+
+    60% {
+        bottom: 90%;
+        left: 0%;
+    }
+
+    80% {
+        bottom: 100%;
+        right: 50%;
+    }
+
+    100% {
+        bottom: -100px;
+        left: 700px;
+    }
+}
+
+/* ================= gr4 animation=========================== */
+@keyframes gra4 {
+    0% {
+        bottom: 0px;
+        right: 300px;
+    }
+
+    25% {
+        bottom: 40%;
+        right: 50%;
+    }
+
+    50% {
+        bottom: 100%;
+        right: 40%;
+    }
+
+    75% {
+        bottom: 10%;
+        right: 100%;
+    }
+
+    100% {
+        bottom: 0px;
+        right: 300px;
+    }
+}
+
+/* =================== gra5 ================ */
+@keyframes gra5 {
+    0% {
+        top: 50%;
+        right: 0px;
+    }
+
+    25% {
+        top: 70%;
+        right: 30%;
+    }
+
+    50% {
+        top: 60%;
+        right: 50%;
+    }
+
+    75% {
+        top: 0%;
+        right: 0%;
+    }
+
+    100% {
+        top: 50%;
+        right: 0px;
+    }
+}
+
+@media (max-width:700px) {
+    .hero-main-container {
+        width: 96%;
+        border-radius: 25px;
+    }
+
+    .name {
+        left: 25px;
+    }
+
+    .name h1 {
+        font-size: 46px;
+        width: 350px;
+        width: 170px;
+        line-height: 70px;
+    }
+
+    .name h1 span {
+        font-size: 115%;
+    }
+
+    .quoate {
+        top: 42%;
+        left: 20px;
+    }
+
+    .quoate p {
+        font-size: 15px;
+        width: 350px;
+    }
+
+    .cv-download {
+        height: 60px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        top: 50%;
+    }
+
+    .get-in-touch {
+        left: 26%;
+    }
+
+    .scroll h2 {
+        font-size: 14px;
+    }
+
+    .technologist h2 {
+        font-size: 15px;
+    }
+
+    /* ======================== */
+    .gr3 {
+        left: 0px;
+        bottom: 50px;
+        z-index: 5;
+        height: 30px;
+        width: 30px;
+        /* animation:none; */
+    }
+
+    /* .gr4{
+        animation:none;
+    }
+    .gr5{
+        animation:none;
+    } */
+
+}

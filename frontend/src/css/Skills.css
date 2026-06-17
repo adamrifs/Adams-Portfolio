@@ -1,0 +1,145 @@
+.skills-main-container {
+    margin-bottom: 120px;
+    padding: 0 40px;
+    box-sizing: border-box;
+    width: 100vw;
+}
+
+.skills-heading {
+    width: 100%;
+    margin: 40px 0 60px 0;
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.skill-orb-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+    position: relative;
+}
+
+.skill-orb {
+    width: 140px;
+    height: 140px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.spinning-ring {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 50%;
+    border: 2px dashed rgba(10, 117, 197, 0.4);
+    box-shadow: 0 0 20px rgba(10, 117, 197, 0.2), inset 0 0 20px rgba(10, 117, 197, 0.2);
+    animation: spinRing 12s linear infinite;
+    transition: all 0.4s ease;
+    z-index: 0;
+}
+
+.skill-orb-wrapper:hover .spinning-ring {
+    border: 2px solid transparent;
+    background-image: linear-gradient(black, black), linear-gradient(90deg, #69e9d2, #0a75c5, #0dd1f1, #83b0f9);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    box-shadow: 0 0 30px rgba(105, 233, 210, 0.6), inset 0 0 30px rgba(13, 209, 241, 0.4);
+    animation: spinRing 3s linear infinite; /* Spin much faster on hover */
+}
+
+@keyframes spinRing {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.orb-glass {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: rgba(20, 20, 20, 0.5);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    overflow: hidden;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.skill-orb-wrapper:hover .orb-glass {
+    transform: scale(1.15);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+    background: rgba(30, 30, 30, 0.8);
+}
+
+.orb-glass img, .skill-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(255,255,255,0.1));
+    transition: transform 0.4s ease;
+}
+
+.skill-orb-wrapper:hover .orb-glass img, 
+.skill-orb-wrapper:hover .skill-icon {
+    transform: scale(1.1) rotate(5deg);
+    filter: drop-shadow(0 0 15px rgba(105, 233, 210, 0.5));
+}
+
+.skill-label {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    opacity: 0.6;
+    letter-spacing: 1px;
+    transform: translateY(-10px);
+    transition: all 0.4s ease;
+}
+
+.skill-orb-wrapper:hover .skill-label {
+    opacity: 1;
+    transform: translateY(0);
+    text-shadow: 0 0 10px #0dd1f1;
+}
+
+@media (max-width: 700px) {
+    .skills-main-container {
+        padding: 0 20px;
+        margin-bottom: 80px;
+    }
+    
+    .skills-grid {
+        gap: 30px;
+    }
+    
+    .skill-orb {
+        width: 110px;
+        height: 110px;
+    }
+    
+    .orb-glass {
+        width: 80px;
+        height: 80px;
+        padding: 15px;
+    }
+    
+    .skill-label {
+        font-size: 14px;
+    }
+}

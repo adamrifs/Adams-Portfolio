@@ -1,0 +1,140 @@
+.about-main-container {
+    height: 100%;
+    display: flex;
+    padding-top: 20px;
+}
+
+.about-left {
+    width: 20%;
+    padding-left: 30px;
+}
+
+/* .about-left h4 {
+    font-weight: 500;
+    font-size: 40px;
+    text-align: center;
+    color: #0a75c5;
+    padding-left: 30px;
+}
+.about-left h4 span{
+    color: #3d66a6;
+} */
+.about-right {
+    width: 80%;
+    padding-top: 40px;
+}
+
+.first h1 {
+    font-size: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: left;
+    padding-right: 50px;
+    padding-top: 40px;
+}
+
+.second h1 {
+    font-size: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: right;
+    padding-right: 50px;
+}
+
+.third h1 {
+    font-size: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding-right: 50px;
+    text-align: right;
+}
+
+.fourth h1 {
+    font-size: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+
+}
+
+.fifth h1 {
+    font-size: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.sixth h1 {
+    font-size: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.seventh h1 {
+    font-size: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+@media (max-width:700px) {
+    .about-main-container {
+        flex-direction: column;
+        overflow-x: hidden;
+        padding-top: 0;
+    }
+
+    .about-left {
+        width: 100%;
+    }
+
+    .about-left h4 {
+        text-align: left;
+        padding-left: 20px;
+    }
+
+    .about-right {
+        width: 100%;
+        padding-top: 0px;
+    }
+
+    .first h1 {
+        font-size: 33px;
+        padding-left: 10px;
+    }
+
+    .second h1 {
+        font-size: 31px;
+        padding-right: 20px;
+        padding-top: 10px;
+    }
+
+    .third h1 {
+        font-size: 21px;
+        padding-right: 10px;
+        padding-top: 10px;
+    }
+
+    .fourth h1 {
+        font-size: 40px;
+        padding-top: 10px;
+        padding-left: 10px;
+    }
+
+    .fifth h1 {
+        font-size: 26px;
+        text-align: right;
+        padding-top: 10px;
+        padding-right: 10px;
+    }
+
+    .sixth h1 {
+        font-size: 40px;
+        text-align: right;
+        padding-top: 10px;
+        padding-right: 20px;
+    }
+
+    .seventh h1 {
+        font-size: 18px;
+        padding-left: 10px;
+        padding-top: 10px;
+    }
+}

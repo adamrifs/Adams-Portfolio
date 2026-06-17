@@ -1,0 +1,29 @@
+.getintouch-main-container {
+    height: 280px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.getintouch-box {
+    padding: 50px 100px;
+    border: 2px solid white;
+    border-radius: 100px;
+    transition:0.8s ease-in-out
+}
+.getintouch-box:hover{
+    transform:scale(1.1)
+}
+.getintouch-box h1{
+    font-weight: 500;
+    font-size: 45px;
+}
+@media (max-width:700px) {
+    .getintouch-box{
+        padding: 25px 50px;
+    }
+    .getintouch-box h1{
+        font-size: 28px;
+    }
+}
