@@ -30,15 +30,13 @@ const Contact = ({ refProp }) => {
     const mesheadref = useRef(null)
     const [mesheadvisible, setmesheadvisible] = useState(false)
     useEffect(() => {
-
         function mesheadfun() {
+            if (!mesheadref.current) return;
             const mesheadtop = mesheadref.current.getBoundingClientRect().top
             const windowheight = window.innerHeight
-            if (mesheadref.current) {
-                if (mesheadtop < windowheight / 1) {
-                    setmesheadvisible(true)
-                    window.removeEventListener('scroll', mesheadfun)
-                }
+            if (mesheadtop < windowheight / 1) {
+                setmesheadvisible(true)
+                window.removeEventListener('scroll', mesheadfun)
             }
         }
 
@@ -52,6 +50,7 @@ const Contact = ({ refProp }) => {
     const [arrowvis, setarrowvis] = useState(false)
     const arrowref = useRef(null)
     useEffect(() => {
+        const arrowElement = arrowref.current;
         function arrowfun(event) {
             if (event.type === 'mouseenter') {
                 setarrowvis(true)
@@ -59,12 +58,16 @@ const Contact = ({ refProp }) => {
                 setarrowvis(false)
             }
         }
-        arrowref.current.addEventListener('mouseenter', arrowfun)
-        arrowref.current.addEventListener('mouseleave', arrowfun)
+        if (arrowElement) {
+            arrowElement.addEventListener('mouseenter', arrowfun)
+            arrowElement.addEventListener('mouseleave', arrowfun)
+        }
 
         return () => {
-            arrowref.current.removeEventListener('mouseenter', arrowfun)
-            arrowref.current.removeEventListener('mouseleave', arrowfun)
+            if (arrowElement) {
+                arrowElement.removeEventListener('mouseenter', arrowfun)
+                arrowElement.removeEventListener('mouseleave', arrowfun)
+            }
         }
     }, [])
 
