@@ -1,0 +1,118 @@
+const project = require("../Models/projectSchema")
+const cloudinary = require('../Config/cloudinary.js')
+
+const addProject = async (req, res) => {
+    try {
+        const { name, description, link } = req.body
+        if (!req.file) {
+            return res.status(400).json({ message: "No image file provided" });
+        }
+        const image = req.file?.path
+        console.log(req.file)
+        let uploadedImage = null
+
+        const uploadResult = await cloudinary.uploader.upload(image, {
+            // resource_type: 'image'
+            folder: "projects"
+        });
+        uploadedImage = uploadResult.secure_url;
+
+        const minOrderProject = await project.findOne().sort({ order: 1 });
+        const newOrder = minOrderProject ? (minOrderProject.order || 0) - 1 : 0;
+
+        const newProject = new project({
+            name,
+            description,
+            link,
+            image: uploadedImage,
+            order: newOrder
+        })
+        await newProject.save()
+        res.status(200).json({ message: 'data added succesfull', project: newProject })
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ message: 'error occured on addProject' })
+    }
+}
+
+const getProject = async (req, res) => {
+    try {
+        const listProject = await project.find().sort({ order: 1 });
+        res.status(200).json({ message: 'projects fetched', listProject })
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ message: 'error occured on getProject' })
+    }
+}
+const editProject = async (req, res) => {
+  try {
+    const { id } = req.params;
+    if (!id) return res.status(400).json({ message: 'id is required' });
+
+    const name = req.body?.name;
+    const description = req.body?.description;
+    const link = req.body?.link;
+
+    let updateData = { name, description, link };
+
+    if (req.file) {
+      const imagePath = req.file.path;
+
+      // Upload new image to Cloudinary
+      const uploadResult = await cloudinary.uploader.upload(imagePath, {
+        folder: "projects"
+      });
+      updateData.image = uploadResult.secure_url;
+
+      // Optional: delete old image
+      const oldProject = await project.findById(id);
+      if (oldProject && oldProject.image) {
+        const publicId = oldProject.image.split("/").pop().split(".")[0];
+        await cloudinary.uploader.destroy(`projects/${publicId}`);
+      }
+    }
+
+    const editedProject = await project.findByIdAndUpdate(id, updateData, { new: true });
+    if (!editedProject) return res.status(404).json({ message: 'Project not found' });
+
+    res.status(200).json({ message: 'Project edited successfully', editedProject });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: 'Error occurred on editProject' });
+  }
+};
+
+const deleteProject = async (req, res) => {
+    try {
+        const { id } = req.params
+        if (!id) {
+            return res.status(500).json({ message: 'id is required' })
+        }
+        await project.findByIdAndDelete(id)
+        res.status(200).json({ message: 'deleted succesfull' })
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ message: 'error occured on deleteProject' })
+    }
+}
+
+const updateProjectOrder = async (req, res) => {
+    try {
+        const { orderedProjects } = req.body;
+        if (!orderedProjects || !Array.isArray(orderedProjects)) {
+            return res.status(400).json({ message: 'Invalid data' });
+        }
+
+        // Bulk update the orders
+        for (const item of orderedProjects) {
+            await project.findByIdAndUpdate(item.id, { order: item.order });
+        }
+
+        res.status(200).json({ message: 'Order updated successfully' });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: 'Error occurred on updateProjectOrder' });
+    }
+}
+
+module.exports = { addProject, getProject, deleteProject, editProject, updateProjectOrder }
